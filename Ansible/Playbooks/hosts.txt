@@ -1,8 +1,0 @@
-[rhelservers]
-172.31.87.28
-172.31.94.236
-
-[debianservers]
-172.31.84.168
-
-localhost
