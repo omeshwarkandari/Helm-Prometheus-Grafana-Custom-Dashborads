@@ -4,7 +4,10 @@ Lets First Understand the query with sysntax: node_cpu_seconds_total{instance na
 where the values for instance and jobname will appear as we run the query in grafana dashboard.
 e.g. node_cpu_seconds_total{instance="172.31.82.223:9100",job="kubernetes-service-endpoints"}
 
-The metrics are being scrapped by the node exported from the /proc/stat and tell us how many seconds each CPU spent doing each type of mutually exlusive work: 
+The metrics are being scrapped by the node exported from the /proc/stat and tell us how many seconds each CPU spent doing each type of mutually exlusive work.
+(Proc file system (procfs) is virtual file system created on fly when system boots and is dissolved at time of system shut down. It contains the useful information 
+about the processes that are currently running, it is regarded as control and information centre for kernel. So proc/stat is all about Kernel & running Process)
+e.g. cat /proc/stat | head -n 5    ---> Display the statistics about various CPU state slike User, System, Idle etc.
 user: The time spent in userland
 system: The time spent in the kernel
 iowait: Time spent waiting for I/O
