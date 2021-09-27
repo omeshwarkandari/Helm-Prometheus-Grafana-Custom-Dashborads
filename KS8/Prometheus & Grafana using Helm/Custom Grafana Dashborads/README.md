@@ -9,7 +9,7 @@ Importance of Exporter: Prometheus can only use HTTP to talk to endpoints for me
 A few custom Grafana dashboards are created for the CPU, Memory, Disk and Network Traffic for a Worker Node-1 as shown in the pic "Dashborad Pic" using Kubeadm on Ubuntu.
 
 Prometheus Databases much SQLDB uses a native custom query language known as PromQL.
-e.g. query to get CPU Total Utlilization "node_cpu_total_   will show all the "instances" of that metic.
+e.g. query to get CPU Total Utlilization "node_cpu_seconds_total" will show all the "instances" of that metic.
 Instance: In Prometheus terms, an endpoint you can scrape is called an instance, usually corresponding to a single process.
 e.g. instance="172.31.82.223:9100"
 172.31.82.223: Internal IP of the Node-1
@@ -18,3 +18,11 @@ e.g. instance="172.31.82.223:9100"
 Job: A collection of instances with the same purpose, a process replicated for scalability or reliability for example, is called a job.
 e.g. job="kubernetes-service-endpoints"
 In Prometheus the Node Exporter is using Port:9100 with service type:ClusterIP to scrap metrics for the instances.
+
+
+Alerting
+While graphs are pretty to look at, metrics can serve another important purpose. They can be used to send alerts. Prometheus includes a separate application, called AlertManager, that serves this purpose. AlertManager receives notifications from Prometheus and handles all of the necessary logic to dedupe and deliver the alerts.
+
+Alerts are created by writing alert rules. These rules are simply PromQL queries that fire when the query is true. That is, if you have a query that checks whether the temperature on the CPU is over 80C, then the query fires for each metric that meets that condition.
+
+Alert rules can also include a time period over which a rule must evaluate to true. Expanding on our temperature example, exceeding 80C is okay if it's a brief period of time, but if it lasts more than five minutes, send an alert. Alerts can be sent via email, Slack, Twitter, SMS, and pretty much anything else you can write an interface for.
