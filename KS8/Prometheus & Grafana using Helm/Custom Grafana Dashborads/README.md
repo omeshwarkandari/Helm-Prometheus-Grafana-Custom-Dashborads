@@ -9,8 +9,8 @@ Importance of Exporter: Prometheus can only use HTTP to talk to endpoints for me
 A few custom Grafana dashboards are created for the CPU, Memory, Disk and Network Traffic for a Worker Node-1 as shown in the pic "Dashborad Pic" using Kubeadm on Ubuntu.
 We are using Node Exporter so Prometheus is scrapping mterics form a running Node Instance which means the Node-IP:9100 is the endpoint for the Kube-API.
 
-Prometheus Databases much SQLDB uses a native custom query language known as PromQL.
-e.g. query to get CPU Total Utlilization "node_cpu_seconds_total" will show all the "instances" of that metic.
+Prometheus Databases much SQLDB uses a native custom query language known as PromQL and metrics provided by the Node Exporter start with the prefix "node_" for any query.
+e.g. query to get CPU Total Utlilization "node_cpu_seconds_total" 
 Instance: In Prometheus terms, an endpoint you can scrape is called an instance, usually corresponding to a single process.
 e.g. instance="172.31.82.223:9100"
 172.31.82.223: Internal IP of the Node-1
