@@ -7,6 +7,7 @@ Once Prometheus has a list of endpoints, it can begin to retrieve metrics from t
 Importance of Exporter: Prometheus can only use HTTP to talk to endpoints for metrics collection and it can face challenges if an end point e.g. Switch/Router which listens into SNMP rather than HTTP requests. Here comes the Exporter small, purpose-built programs designed to stand between Prometheus and anything you want to monitor that doesn't natively support Prometheus. 
 
 A few custom Grafana dashboards are created for the CPU, Memory, Disk and Network Traffic for a Worker Node-1 as shown in the pic "Dashborad Pic" using Kubeadm on Ubuntu.
+We are using Node Exporter so Prometheus is scrapping mterics form a running Node Instance which means the Node-IP:9100 is the endpoint for the Kube-API.
 
 Prometheus Databases much SQLDB uses a native custom query language known as PromQL.
 e.g. query to get CPU Total Utlilization "node_cpu_seconds_total" will show all the "instances" of that metic.
