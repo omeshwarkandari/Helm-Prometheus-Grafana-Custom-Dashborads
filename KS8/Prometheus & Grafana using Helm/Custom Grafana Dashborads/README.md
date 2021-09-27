@@ -1,5 +1,7 @@
-This document has custom Grafana dashboards created as shown in the pic "Dashborad Pic" for the CPU, Memory, Disk and Network Traffic for a Worker Node-1
-of the demo cluster Kubeadm.
+Prometheus captures & stores the cluster metrics as a Time Series Data and Grafana uses these metrics for the Dashboard Visulization.
+A time series is a data set that tracks a sample over time
+
+A few custom Grafana dashboards are created for the CPU, Memory, Disk and Network Traffic for a Worker Node-1 as shown in the pic "Dashborad Pic" using Kubeadm on Ubuntu.
 
 Instance: In Prometheus terms, an endpoint you can scrape is called an instance, usually corresponding to a single process.
 e.g. instance="172.31.82.223:9100"
